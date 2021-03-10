@@ -1,0 +1,92 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 6,
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "import",
+    "@typescript-eslint",
+    "prettier",
+    "jest"
+  ],
+  "rules": {
+    "no-console": 2,
+    "@typescript-eslint/no-non-null-assertion":0,
+    "@typescript-eslint/no-implied-eval": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 0,
+    "react/jsx-filename-extension": [
+      0
+    ],
+    "react/jsx-closing-bracket-location": [
+      1,
+      "tag-aligned"
+    ],
+    "react/jsx-uses-react": 0,
+    "react/react-in-jsx-scope": 0,
+    "import/no-extraneous-dependencies": 1,
+    "import/extensions": [2, "ignorePackages", {
+      "ts": "never",
+      "tsx": "never"
+    }],
+    "import/order":[
+      2,
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups":[{
+          "pattern": "react",
+          "group": "external",
+          "position": "before"
+        }],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive":true
+        }
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"],
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}
